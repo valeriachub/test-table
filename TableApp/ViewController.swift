@@ -7,25 +7,10 @@ class UpdateValue: NSObject {
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var timer: Timer?
-    var updateValue = UpdateValue()
-    
     @IBOutlet weak var tableView: UITableView!
     
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DATA.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
-        
-        cell.configure(updateValue: updateValue, image: UIImage(named: String(indexPath.row)))
-        print("cellForRowAt")
-        
-        return cell
-    }
-    
+    var timer: Timer?
+    var updateValue = UpdateValue()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,5 +24,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         updateValue.count += 1
         
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return DATA.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
+        
+        cell.configure(updateValue: updateValue, image: UIImage(named: String(indexPath.row)))
+        print("cellForRowAt")
+        
+        return cell
     }
 }

@@ -6,15 +6,8 @@ class CustomCell: UITableViewCell {
     @IBOutlet weak var cellText: UITextView!
     @IBOutlet weak var cellLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
     private var observation: NSKeyValueObservation?
+    
     @objc var updateValue: UpdateValue!
     
     func configure(updateValue: UpdateValue, image: UIImage?) {
